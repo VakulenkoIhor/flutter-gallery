@@ -17,7 +17,10 @@ import 'package:google_fonts/google_fonts.dart';
 
 export 'package:gallery/data/demos.dart' show pumpDeferredLibraries;
 
+import 'package:flutter_driver/driver_extension.dart';
+
 void main() {
+  enableFlutterDriverExtension();
   GoogleFonts.config.allowRuntimeFetching = false;
   runApp(const GalleryApp());
 }

@@ -270,6 +270,7 @@ class _CategoriesHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Header(
+      key: const Key('homeHeaderCategories'),
       color: Theme.of(context).colorScheme.primary,
       text: GalleryLocalizations.of(context)!.homeHeaderCategories,
     );
@@ -451,6 +452,57 @@ class _AnimatedHomePageState extends State<_AnimatedHomePage>
                     _isOtherListExpanded.value = shouldOpenList;
                   }),
             ),
+            const SizedBox(height: 40),
+            Container(
+                child: Column(
+                    children: <Widget>[
+                      RichText(
+                        key: const Key('richText'),
+                        text: const TextSpan(
+                          text: 'Hello ',
+                          style: TextStyle(color: Colors.blueGrey),
+                          children: <TextSpan>[
+                            TextSpan(text: 'bold', style: TextStyle(fontWeight: FontWeight.bold)),
+                            TextSpan(text: ' world!'),
+                          ],
+                        ),
+                      ),
+                    ]
+                )),
+            const SizedBox(height: 40),
+            Container(
+                child: Column(
+                    children: <Widget>[
+                      TextButton(
+                        key: const Key('disabledButton'),
+                        style: TextButton.styleFrom(
+                          textStyle: const TextStyle(fontSize: 20),
+                        ),
+                        onPressed: null,
+                        child: const Text('Disabled'),
+                      ),
+                      const SizedBox(height: 10),
+                      TextButton(
+                        key: const Key('enabledButton'),
+                        style: TextButton.styleFrom(
+                          textStyle: const TextStyle(fontSize: 20),
+                        ),
+                        onPressed: () {},
+                        child: const Text('Enabled'),
+                      ),
+                      const SizedBox(height: 10),
+                      Opacity(opacity: 0.5, child: ElevatedButton(
+                        key: const Key('transparentButton'),
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.all(16.0),
+                          textStyle: const TextStyle(fontSize: 20),
+                        ),
+                        onPressed: () {},
+                        child: const Text('Transparent'),
+                      )),
+                      const SizedBox(height: 10)
+                    ]
+                ))
           ],
         ),
         Align(
@@ -823,6 +875,7 @@ class _CarouselState extends State<_Carousel>
       child: PageView.builder(
         // Makes integration tests possible.
         key: const ValueKey('studyDemoList'),
+        restorationId: 'studyDemoListRestorationId',
         onPageChanged: (value) {
           setState(() {
             _currentPage.value = value;
@@ -1189,6 +1242,7 @@ class _StudyWrapperState extends State<StudyWrapper> {
                     child: FloatingActionButton.extended(
                       heroTag: _BackButtonHeroTag(),
                       key: const ValueKey('Back'),
+                      tooltip: 'Back',
                       onPressed: () {
                         Navigator.of(context)
                             .popUntil((route) => route.settings.name == '/');
