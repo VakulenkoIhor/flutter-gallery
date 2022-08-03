@@ -260,34 +260,34 @@ class _GalleryDemoPageState extends State<GalleryDemoPage>
         ),
       ),
       actions: [
-        if (_hasOptions)
-          IconButton(
-            icon: FeatureDiscovery(
-              title: localizations.demoOptionsFeatureTitle,
-              description: localizations.demoOptionsFeatureDescription,
-              showOverlay: _showFeatureHighlightForPlatform(context),
-              color: colorScheme.primary,
-              onDismiss: () {
-                setState(() {
-                  _showFeatureHighlight = false;
-                });
-              },
-              onTap: () {
-                setState(() {
-                  _showFeatureHighlight = false;
-                });
-              },
-              child: Icon(
-                Icons.tune,
-                color: currentDemoState == _DemoState.options ||
-                        _showFeatureHighlightForPlatform(context)
-                    ? selectedIconColor
-                    : iconColor,
-              ),
-            ),
-            tooltip: localizations.demoOptionsTooltip,
-            onPressed: () => _handleTap(_DemoState.options),
-          ),
+        // if (_hasOptions)
+        //   IconButton(
+        //     icon: FeatureDiscovery(
+        //       title: localizations.demoOptionsFeatureTitle,
+        //       description: localizations.demoOptionsFeatureDescription,
+        //       showOverlay: _showFeatureHighlightForPlatform(context),
+        //       color: colorScheme.primary,
+        //       onDismiss: () {
+        //         setState(() {
+        //           _showFeatureHighlight = false;
+        //         });
+        //       },
+        //       onTap: () {
+        //         setState(() {
+        //           _showFeatureHighlight = false;
+        //         });
+        //       },
+        //       child: Icon(
+        //         Icons.tune,
+        //         color: currentDemoState == _DemoState.options ||
+        //                 _showFeatureHighlightForPlatform(context)
+        //             ? selectedIconColor
+        //             : iconColor,
+        //       ),
+        //     ),
+        //     tooltip: localizations.demoOptionsTooltip,
+        //     onPressed: () => _handleTap(_DemoState.options),
+        //   ),
         IconButton(
           icon: const Icon(Icons.info),
           tooltip: localizations.demoInfoTooltip,

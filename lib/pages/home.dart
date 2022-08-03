@@ -270,7 +270,6 @@ class _CategoriesHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Header(
-      key: const Key('homeHeaderCategories'),
       color: Theme.of(context).colorScheme.primary,
       text: GalleryLocalizations.of(context)!.homeHeaderCategories,
     );
